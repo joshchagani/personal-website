@@ -6,6 +6,7 @@ node_modules/
 build/
 _design/
 *.log
+.snowpack/
 
 # OS generated files
 .DS_Store

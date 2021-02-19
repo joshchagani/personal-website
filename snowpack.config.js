@@ -14,13 +14,11 @@ module.exports = {
 		// {"match": "routes", "src": ".*", "dest": "/index.html"},
 	],
 	optimize: {
-		bundle: true,
 		minify: true,
-		splitting: true,
-		treeshake: true,
 	},
 	packageOptions: {
-		/* ... */
+		source: 'remote',
+		types: true,
 	},
 	devOptions: {
 		/* ... */

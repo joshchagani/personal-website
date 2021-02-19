@@ -1,4 +1,8 @@
 :root {
+	/* Colors */
+	--dark-blue: hsla(240, 27%, 18%, 1);
+	--light-blue: hsla(232, 17%, 35%, 1);
+
 	/* Fonts */
 	--font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
 		Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
@@ -9,19 +13,35 @@
 }
 
 html,
+body {
+	background-color: var(--dark-blue);
+}
+
 body,
+blockquote,
+dl,
+dd,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
+hr,
+figure,
 p,
+pre,
 input,
 button {
 	font-family: var(--font-sans);
 }
 
-code {
+code,
+kbd,
+samp,
+pre {
 	font-family: var(--font-mono);
+}
+
+body {
 }
