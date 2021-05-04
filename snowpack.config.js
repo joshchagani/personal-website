@@ -16,6 +16,7 @@ module.exports = {
 	],
 	optimize: {
 		minify: true,
+		bundle: true,
 	},
 	packageOptions: {
 		source: 'remote',
