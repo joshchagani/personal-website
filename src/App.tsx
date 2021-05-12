@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useTrail, useSpring, animated, interpolate } from 'react-spring'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import Robot from './Robot'
 
@@ -75,6 +75,7 @@ export default function App() {
 						</Span>
 					</Trail>
 				</div>
+				<DownArrow>&#8675;</DownArrow>
 			</Section1>
 			<Section2>
 				<Robot />
@@ -104,6 +105,12 @@ export default function App() {
 	)
 }
 
+const bouncingAnimation = keyframes`
+	0% {transform: translate3d(0, 0, 0)}
+	50% {transform: translate3d(0, -1rem, 0)}
+	100% {transform: translate3d(0, 0, 0)}
+`
+
 const Main = styled.main`
 	width: 100vw;
 	height: 100vh;
@@ -113,15 +120,29 @@ const Main = styled.main`
 	-webkit-overflow-scrolling: touch;
 `
 
+const DownArrow = styled.div`
+	position: absolute;
+	width: 100%;
+	color: var(--light-blue);
+	font-size: 3rem;
+	bottom: 1rem;
+	text-align: center;
+
+	animation: ${bouncingAnimation} 2000ms ease-in-out infinite;
+`
+
 const Section1 = styled.section`
 	display: grid;
 	position: relative;
 	width: 100vw;
 	height: 100vh;
-	scroll-snap-align: start;
 
 	& > * {
 		place-self: center;
+	}
+
+	@media screen and (min-width: 45rem) {
+		scroll-snap-align: start;
 	}
 `
 
@@ -133,12 +154,12 @@ const Section2 = styled.section`
 	margin: 0 auto;
 	grid-template-rows: 0.5fr 1fr;
 	grid-template-columns: 1fr;
-	scroll-snap-align: start;
 
 	@media screen and (min-width: 45rem) {
 		gap: 10px;
 		grid-template-rows: 1fr;
 		grid-template-columns: 0.8fr 1fr;
+		scroll-snap-align: start;
 
 		& > * {
 			place-self: center;
@@ -151,10 +172,13 @@ const Section3 = styled.section`
 	position: relative;
 	width: 100vw;
 	height: 100vh;
-	scroll-snap-align: start;
 
 	& > * {
 		place-self: center;
+	}
+
+	@media screen and (min-width: 45rem) {
+		scroll-snap-align: start;
 	}
 `
 
